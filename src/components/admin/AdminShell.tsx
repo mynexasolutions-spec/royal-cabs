@@ -55,7 +55,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
           <X className="h-5 w-5" />
         </button>
       </div>
-      <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-2">
+      <nav className="no-scrollbar flex-1 space-y-0.5 overflow-y-auto px-3 py-2">
         {NAV.map((n) => {
           const active = n === current;
           return (
@@ -63,7 +63,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
               key={n.href}
               href={n.href}
               onClick={() => setOpen(false)}
-              className={`flex items-center gap-3 rounded-xl px-4 py-3 text-[15px] font-medium transition ${
+              className={`flex items-center gap-3 rounded-xl px-4 py-2.5 text-[15px] font-medium transition ${
                 active ? "bg-brand font-bold text-ink" : "text-white/80 hover:bg-white/10"
               }`}
             >

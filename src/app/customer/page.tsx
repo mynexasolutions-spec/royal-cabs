@@ -24,21 +24,29 @@ export default function CustomerDashboard() {
   return (
     <div className="space-y-5">
       <div className="grid gap-5 lg:grid-cols-[1.7fr_1fr]">
-        <div className="space-y-0">
-          <div className="relative h-44 overflow-hidden rounded-t-2xl bg-sidebar sm:h-56">
-            <Image src="/images/hero.jpg" alt="" fill className="object-cover object-[70%_60%] opacity-90" priority />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent" />
-            <div className="absolute inset-0 flex flex-col justify-center p-5 text-white sm:p-8">
-              <p className="text-sm text-white/80">Hello Rahul 👋</p>
-              <p className="text-xl font-extrabold leading-tight sm:text-3xl">
+        <div className="min-w-0 space-y-4">
+          <div className="relative h-48 overflow-hidden rounded-2xl bg-sidebar sm:h-56">
+            <Image
+              src="/images/hero.jpg"
+              alt=""
+              width={686}
+              height={540}
+              priority
+              className="absolute inset-y-0 right-0 h-full w-full object-cover object-[75%_70%] sm:w-[62%]"
+            />
+            {/* Fade the photo into the dark panel so the text stays readable */}
+            <div className="absolute inset-0 bg-gradient-to-r from-sidebar from-30% via-sidebar/75 to-transparent sm:via-sidebar/60" />
+            <div className="relative flex h-full max-w-[420px] flex-col justify-center p-5 text-white sm:p-8">
+              <p className="text-sm text-white/70">Hello Rahul 👋</p>
+              <p className="mt-1 text-2xl font-extrabold leading-tight sm:text-3xl">
                 Taxi Service in <span className="text-brand">Kolhapur, Pune, Sangli</span>
               </p>
-              <p className="mt-2 hidden text-xs text-white/80 sm:block">✔ One-way &nbsp; ✔ Round-trip &nbsp; ✔ Airport Transfer &nbsp; ✔ Outstation</p>
+              <p className="mt-3 text-xs text-white/75 sm:text-sm">
+                One-way · Round-trip · Airport · Outstation
+              </p>
             </div>
           </div>
-          <div className="-mt-6 sm:-mt-8">
-            <BookingWidget title="Book Your Taxi" subtitle="Get instant fare estimate and book your ride in minutes." compact />
-          </div>
+          <BookingWidget title="Book Your Taxi" subtitle="Get instant fare estimate and book your ride in minutes." compact />
         </div>
 
         <div className="space-y-5">
