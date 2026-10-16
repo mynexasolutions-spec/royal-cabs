@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand: #ffc107;
+  --color-brand-dark: #e5a900;
+  --color-brand-soft: #fff4cc;
+  --color-cream: #fffaf0;
+  --color-ink: #111318;
+  --color-sidebar: #11141b;
+  --color-line: #ececf1;
+  --color-page: #f6f7fb;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Form controls shared across the app */
+@utility field {
+  @apply w-full rounded-lg border border-line bg-white px-3 py-2.5 text-sm text-ink outline-none transition;
+  @apply placeholder:text-gray-400 focus:border-brand focus:ring-2 focus:ring-brand/30;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition active:scale-[.98];
+}
+@utility btn-primary {
+  @apply btn bg-brand text-ink hover:bg-brand-dark;
+}
+@utility btn-dark {
+  @apply btn bg-ink text-white hover:bg-black;
+}
+@utility btn-ghost {
+  @apply btn border border-line bg-white text-ink hover:bg-gray-50;
+}
+@utility btn-soft {
+  @apply btn bg-brand-soft text-ink hover:bg-brand/40;
+}
+
+@utility card {
+  @apply rounded-2xl border border-line bg-white shadow-[0_1px_2px_rgba(16,24,40,.04)];
+}
+
+/* Hide scrollbar but keep scrolling (used by tab strips) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* Safe-area padding for the driver bottom bar on notched phones */
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom), 0px);
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+}
